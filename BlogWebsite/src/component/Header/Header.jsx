@@ -3,7 +3,7 @@ import {Container, Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
+import logo from '/logo.png';
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
@@ -41,10 +41,13 @@ console.log("Auth status:", authStatus)
       <Container>
         <nav className='flex'>
           <div className='mr-2'>
-            <Link to='FullStack\React\BlogWebsite\public\Gemini_Generated_Image_2q6o4u2q6o4u2q6o-removebg-preview.png'>
-              <Logo width='0px'   />
-
-              </Link>
+            <Link to="/">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              width="40px"
+            />
+          </Link>
           </div>
           <ul className='flex ml-auto'>
             {navItems.map((item) => 
