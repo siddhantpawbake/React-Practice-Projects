@@ -5,31 +5,37 @@ import useCurrencyInfo from './hooks/useCurrencyInfo'
 
 function App() {
 
-  const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState("usd")
-  const [to, setTo] = useState("inr")
-  const [convertedAmount, setConvertedAmount] = useState(0)
-
-  const currencyInfo = useCurrencyInfo(from)
-
-  const options = Object.keys(currencyInfo)
-
-  const swap = () => {
-    setFrom(to)
-    setTo(from)
-    setConvertedAmount(amount)
-    setAmount(convertedAmount)
-  }
+    const [amount, setAmount] = useState(0)
+    const [from, setFrom] = useState("USD")
+    const [to, setTo] = useState("INR")
+    const [convertedAmount, setConvertedAmount] = useState(0)
+    const currencyInfo = useCurrencyInfo(from)
+    const options = Object.keys(currencyInfo || {})
+    const swap = () => {
+        const oldFrom = from
+        const oldTo = to
+        const oldAmount = amount
+        const oldConverted = convertedAmount
+        setFrom(oldTo)
+        setTo(oldFrom)
+        setAmount(oldConverted)
+        setConvertedAmount(oldAmount)
+    }
   
-  const convert = () => {
-    setConvertedAmount(amount * currencyInfo[to])
-  }
+    const convert = () => {
+        const rate = currencyInfo?.[to]
+        if (!rate) {
+            setConvertedAmount(0)
+            return
+        }
+        setConvertedAmount(amount * rate)
+    }
 
   return (
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
-            backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
+            backgroundImage: `url('https://images.pexels.com/photos/7135037/pexels-photo-7135037.jpeg')`,
         }}
     >
         <div className="w-full">
@@ -46,7 +52,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setAmount(amount)}
+                            onCurrencyChange={(currency) => setFrom(currency)}
                             selectCurrency={from}
                             onAmountChange={(amount) => setAmount(amount)}
                         />
@@ -66,7 +72,7 @@ function App() {
                             amount={convertedAmount}
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setTo(currency)}
-                            selectCurrency={from}
+                            selectCurrency={to}
                             amountDisable
                         />
                     </div>
