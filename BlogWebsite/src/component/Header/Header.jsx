@@ -7,9 +7,7 @@ import { useNavigate } from 'react-router-dom'
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
-
 console.log("Auth status:", authStatus)
-
   const navItems = [
     {
       name: 'Home',
@@ -38,13 +36,12 @@ console.log("Auth status:", authStatus)
   },
   ]
 
-
   return (
     <header className="h-14 flex items-center justify-between bg-gray-900 text-white px-4">
       <Container>
         <nav className='flex'>
           <div className='mr-2'>
-            <Link to='/'>
+            <Link to='FullStack\React\BlogWebsite\public\Gemini_Generated_Image_2q6o4u2q6o4u2q6o-removebg-preview.png'>
               <Logo width='0px'   />
 
               </Link>

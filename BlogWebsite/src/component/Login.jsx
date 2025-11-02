@@ -11,7 +11,6 @@ function Login() {
     const dispatch = useDispatch()
     const {register, handleSubmit} = useForm()
     const [error, setError] = useState("")
-
     const login = async(data) => {
       console.log("Login form data:", data);
         setError("")
@@ -26,7 +25,6 @@ function Login() {
             setError(error.message)
         }
     }
-
   return (
     <div
     className='flex items-center justify-center w-full'
@@ -80,5 +78,4 @@ function Login() {
     </div>
   )
 }
-
 export default Login
