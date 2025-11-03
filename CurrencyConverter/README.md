@@ -1,12 +1,43 @@
-# React + Vite
+# Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple currency-converter web app built with React.  
+Allows users to convert between different currencies in real time + provides a clean, user-friendly interface.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo  
+![Screenshot](https://github.com/siddhantpawbake/React-Practice-Projects/blob/master/CurrencyConverter/public/Screenshot.jpg?raw=true)  
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Convert between multiple currencies with live exchange rates.  
+- Input amount in one currency → displays equivalent in another.  
+- Responsive design – works on mobile & desktop.  
+- Clean, intuitive UI.  
+- Easy to extend with new currencies or UI themes.
+
+## Tech Stack
+
+- **Frontend**: React (functional components + hooks)  
+- **State Management**: React state & effects  
+- **API**:  ExchangeRatesAPI  
+- **Styling**: CSS & Tailwind CSS
+- **Build Tools**: Vite  
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 / v16+) & npm or yarn installed  
+- Internet connection (to fetch live rates)  
+
+### Installation
+
+```bash
+# Clone repository
+git clone https://github.com/siddhantpawbake/React-Practice-Projects.git
+
+# Navigate into currency converter project
+cd React-Practice-Projects/CurrencyConverter
+
+# Install dependencies
+npm install
