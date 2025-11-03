@@ -7,7 +7,6 @@
 
 **A comprehensive collection of fundamental React.js applications for learning and practice.**
 
-[Live Demo](https://react-practice-projects-liard.vercel.app)
 
 </div>
 
