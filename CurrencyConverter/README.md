@@ -3,8 +3,8 @@
 A simple currency-converter web app built with React.  
 Allows users to convert between different currencies in real time + provides a clean, user-friendly interface.
 
-
-## Demo  
+[Live Demo](https://react-practice-projects-liard.vercel.app/)
+## Screenshots  
 ![Screenshot](https://github.com/siddhantpawbake/React-Practice-Projects/blob/master/CurrencyConverter/public/Screenshot.jpg?raw=true)  
 
 ## Features
