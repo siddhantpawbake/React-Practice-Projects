@@ -11,7 +11,7 @@ export default function Post() {
     const { slug } = useParams();
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
-    const isAuthor = post && userData ? post.UserId === userData.$id : false;
+    const isAuthor = post && userData ? post.userId === userData.$id : false;
 
     useEffect(() => {
         if (slug) {
@@ -24,10 +24,10 @@ export default function Post() {
 
     const deletePost = () => {
         appwriteService.deletePost(post.$id).then((status) => {
-            if (status) {
-                appwriteService.deleteFile(post.FeaturedImg || post.featuredImage);
-                navigate("/");
-            }
+          if (status) {
+            appwriteService.deleteFile(post.featuredImage);
+            navigate("/");
+          }
         });
     };
 
@@ -38,9 +38,9 @@ export default function Post() {
       
       {/* Image section */}
       <div className="relative mb-6">
-        {(post.FeaturedImg || post.featuredImage) ? (
+        {post.featuredImage ? (
           <img
-            src={appwriteService.getFilePreview(post.FeaturedImg || post.featuredImage)}
+            src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
             className="w-full max-h-[500px] object-cover rounded-xl shadow"
           />
